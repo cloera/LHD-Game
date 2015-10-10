@@ -20,6 +20,28 @@ public interface Player {
 	 */
 	void move(int x, int y);
 	
+	/***
+	 * Getter for X coordinate
+	 * @return X
+	 */
+	public int getX();
 	
+	/***
+	 * Getter for Y coordinate
+	 * @return Y
+	 */
+	public int getY();
+	
+	/***
+	 * Setter for X coordinate
+	 * @param xCoor
+	 */
+	public void setX(int xCoor);
+	
+	/***
+	 * Setter for Y coordinate
+	 * @param yCoor
+	 */
+	public void setY(int yCoor);
 	
 }
