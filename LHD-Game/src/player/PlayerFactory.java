@@ -6,11 +6,11 @@ public class PlayerFactory {
 	private static EnemyPlayer enemyInstance = new EnemyPlayer();
 	private PlayerFactory(){}
 	
-	public static Player getHumanPlayer(){
+	public static HumanPlayer getHumanPlayer(){
 		return humanInstance;
 	}
 
-	public static Player getEnemyPlayer(){
+	public static EnemyPlayer getEnemyPlayer(){
 		return enemyInstance;
 	}
 	

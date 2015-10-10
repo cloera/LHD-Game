@@ -9,6 +9,8 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import player.EnemyPlayer;
+import player.HumanPlayer;
 import player.Player;
 import player.PlayerFactory;
 
@@ -20,8 +22,8 @@ public class GameWindow extends JPanel implements KeyListener{
 	    private int y = 0;
 	    private int velX = 0, velY = 0;
 
-		public Player human = PlayerFactory.getHumanPlayer();
-		public Player opponent = PlayerFactory.getEnemyPlayer();	    
+		public HumanPlayer human = PlayerFactory.getHumanPlayer();
+		public EnemyPlayer opponent = PlayerFactory.getEnemyPlayer();	    
 		public Turn turn = Turn.PLAYER;
 		
 		public GameWindow(){
@@ -41,24 +43,26 @@ public class GameWindow extends JPanel implements KeyListener{
 	        if(this.turn == Turn.PLAYER){
 	        	int playerX = human.getX();
 	        	int playerY = human.getY();
-	        	g2d.fillOval(playerX, playerY, 30, 30);
+	        	
+	        	g2d.drawImage(human.getIcon(),playerX, playerY, null);
+	        	g2d.drawImage(opponent.getIcon(), opponent.getX(), opponent.getY(), null);
 	        }
 	        // Computer's Turn
 	        else{
-	        	//g2d.fillOval(++x, ++y, 30, 30);
-	        	//this.turn = Turn.PLAYER;
-	        	computerTurn();
+	        	g2d.drawImage(human.getIcon(), human.getX(), human.getY(), null);
+	        	g2d.drawImage(opponent.getIcon(), opponent.getX(), opponent.getY(), null);
+	        	this.turn = Turn.PLAYER;
 	        }
 	        
 	        //g2d.fillOval(x, y, 30, 30);
 	    }
 	    
 	    private void computerTurn(){
-	    	Graphics2D g2d = (Graphics2D) g;
+	    	/*Graphics2D g2d = (Graphics2D) g;
 	        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 	            RenderingHints.VALUE_ANTIALIAS_ON);
         	g2d.fillOval(++x, ++y, 30, 30);
-        	this.turn = Turn.PLAYER;
+        	this.turn = Turn.PLAYER;*/
 	    }
 		
 		@Override

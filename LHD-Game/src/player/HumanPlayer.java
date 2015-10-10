@@ -1,6 +1,9 @@
 package player;
 
+import java.awt.Image;
 import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
 
 import obstacles.Obstacles;
 
@@ -11,14 +14,14 @@ import obstacles.Obstacles;
  * @author Christian Loera, Ricardo Arroyo
  *
  */
-public class HumanPlayer implements Player{
+public class HumanPlayer implements Player {
 	private int x = 0;
 	private int y = 0;
-	@SuppressWarnings("unused")
+	private Image playerIcon = new ImageIcon("Assests/Images/Duck.png").getImage(); 
 	private ArrayList<Obstacles> inventory = new ArrayList<Obstacles>();
 	
 	HumanPlayer(){
-		//unimplemented
+		// Unimplemented
 	}
 	
 	@Override
@@ -29,6 +32,10 @@ public class HumanPlayer implements Player{
 	@Override
 	public void move(int x, int y) {
 		//TODO
+	}
+	
+	public Image getIcon() {
+		return playerIcon;
 	}
 	
 	public int getX() {

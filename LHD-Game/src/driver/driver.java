@@ -7,7 +7,8 @@ import gui.GameWindow.Turn;
 
 public class driver {
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
+		// Frame Setup
         JFrame frame = new JFrame("LHD-Game");
         GameWindow game = new GameWindow();
         frame.add(game);
@@ -15,8 +16,10 @@ public class driver {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        // Game Run
         while (true) {
             game.repaint();
+
           /*  if(game.turn == Turn.OPPONENT)
             	game.turn = Turn.PLAYER;
             else if(game.turn == Turn.PLAYER)

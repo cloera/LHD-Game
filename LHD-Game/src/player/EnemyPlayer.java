@@ -1,6 +1,9 @@
 package player;
 
+import java.awt.Image;
 import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
 
 import obstacles.Obstacles;
 
@@ -12,9 +15,9 @@ import obstacles.Obstacles;
  *
  */
 public class EnemyPlayer implements Player{
-	private int x = 0;
-	private int y = 0;
-	@SuppressWarnings("unused")
+	private int x = 50;
+	private int y = 50;
+	private Image playerIcon = new ImageIcon("Assests/Images/Dog.png").getImage(); 
 	private ArrayList<Obstacles> inventory = new ArrayList<Obstacles>();
 	
 	EnemyPlayer(){
@@ -29,6 +32,10 @@ public class EnemyPlayer implements Player{
 	@Override
 	public void move(int x, int y) {
 		//TODO
+	}
+	
+	public Image getIcon(){
+		return playerIcon;
 	}
 	
 	public int getX() {
