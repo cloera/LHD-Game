@@ -54,6 +54,10 @@ public class HumanPlayer implements Player {
 		y = yCoor;
 	}
 
+	public void setXandY(int xCoor, int yCoor){
+		x = xCoor;
+		y = yCoor;
+	}
 
 
 	

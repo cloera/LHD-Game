@@ -53,5 +53,57 @@ public class EnemyPlayer implements Player{
 	public void setY(int yCoor) {
 		y = yCoor;
 	}
+	
+	/***
+	 * Sets the Coordinate of the Object based on the Player's coordinates. (Follow player)
+	 * @param targetXCoor The Target's X Coordinate
+	 * @param targetYCoor The Target's Y Coordinate
+	 */
+	public void setTargetDirection(int targetXCoor, int targetYCoor){
+		int xBeforeChange = x;
+		int yBeforeChange = y;
+		
+		int closestToZero = 0;
+		
+		for(int i = 0 ; i < 4; i++)
+		{
+			int tempX = xBeforeChange;
+			int tempY = yBeforeChange;
+			
+			switch(i)
+			{
+			case 0:
+				tempX -= 1;
+				break;
+			case 1:
+				tempX += 1;
+				break;
+			case 2:
+				tempY -= 1;
+				break;
+			case 3:
+				tempY += 1;
+				break;				
+			}
+			
+			int calc = Math.abs((tempX - targetXCoor) + (tempY - targetYCoor));
+			
+			if(i == 0){
+				closestToZero = calc;
+				setX(tempX);
+				setY(tempY);
+			}
+			else{
+				if(closestToZero > calc)
+				{
+					closestToZero = calc;
+					setX(tempX);
+					setY(tempY);
+				}
+			}
+			
+		} // End For
+		
+	} // End Method
 
 }

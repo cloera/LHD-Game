@@ -50,11 +50,11 @@ public class GameWindow extends JPanel implements KeyListener{
 	        // Computer's Turn
 	        else{
 	        	g2d.drawImage(human.getIcon(), human.getX(), human.getY(), null);
+	        	opponent.setTargetDirection(human.getX(), human.getY());
 	        	g2d.drawImage(opponent.getIcon(), opponent.getX(), opponent.getY(), null);
 	        	this.turn = Turn.PLAYER;
 	        }
 	        
-	        //g2d.fillOval(x, y, 30, 30);
 	    }
 	    
 	    private void computerTurn(){
@@ -99,8 +99,7 @@ public class GameWindow extends JPanel implements KeyListener{
 	        
 	        int tempx = human.getX() +velX;
 	        int tempy = human.getY() +velY;
-	        human.setX(tempx);
-	        human.setY(tempy);
+	        human.setXandY(tempx, tempy);
 		}
 
 		@Override

@@ -7,7 +7,7 @@ package obstacles;
  *
  */
 public class Collectables {
-
+	
 	private Collectables(){
 		//TODO
 	}
