@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import obstacles.Collectables;
 import player.EnemyPlayer;
 import player.HumanPlayer;
 import player.Player;
@@ -24,7 +25,8 @@ public class GameWindow extends JPanel implements KeyListener{
 	    private int velX = 0, velY = 0;
 
 		public HumanPlayer human = PlayerFactory.getHumanPlayer();
-		public EnemyPlayer opponent = PlayerFactory.getEnemyPlayer();	    
+		public EnemyPlayer opponent = PlayerFactory.getEnemyPlayer();	
+		public Collectables goal = new Collectables();
 		public Turn turn = Turn.PLAYER;
 		
 		public GameWindow(){
@@ -60,6 +62,8 @@ public class GameWindow extends JPanel implements KeyListener{
 	        	g2d.drawImage(opponent.getIcon(), opponent.getX(), opponent.getY(), null);
 	        	this.turn = Turn.PLAYER;
 	        }
+	        
+	       g2d.drawImage(goal.getIcon(), goal.getX(), goal.getY(), null);
 	        
 	    }
 	    
