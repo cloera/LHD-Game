@@ -15,10 +15,13 @@ import obstacles.Obstacles;
  *
  */
 public class HumanPlayer implements Player {
+	public enum Direction {	UP, DOWN, LEFT, RIGHT};
+	
 	private int x = 0;
 	private int y = 0;
 	private Image playerIcon = new ImageIcon("Assests/Images/Duck.png").getImage(); 
 	private ArrayList<Obstacles> inventory = new ArrayList<Obstacles>();
+	private Direction lastDirectionUsed;
 	
 	HumanPlayer(){
 		// Unimplemented
@@ -46,6 +49,10 @@ public class HumanPlayer implements Player {
 		return y;
 	}
 	
+	public Direction getLastDirectionUsed(){
+		return lastDirectionUsed;
+	}
+	
 	public void setX(int xCoor) {
 		x = xCoor;
 	}
@@ -57,6 +64,10 @@ public class HumanPlayer implements Player {
 	public void setXandY(int xCoor, int yCoor){
 		x = xCoor;
 		y = yCoor;
+	}
+	
+	public void setLastDirectionUsed(Direction direction){
+		lastDirectionUsed = direction;
 	}
 
 

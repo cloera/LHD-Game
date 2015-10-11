@@ -13,6 +13,7 @@ import player.EnemyPlayer;
 import player.HumanPlayer;
 import player.Player;
 import player.PlayerFactory;
+import player.HumanPlayer.Direction;
 
 @SuppressWarnings("serial")
 public class GameWindow extends JPanel implements KeyListener{
@@ -49,8 +50,13 @@ public class GameWindow extends JPanel implements KeyListener{
 	        }
 	        // Computer's Turn
 	        else{
+	        	// Draw the Human 
 	        	g2d.drawImage(human.getIcon(), human.getX(), human.getY(), null);
-	        	opponent.setTargetDirection(human.getX(), human.getY());
+	        	
+	        	// set the target direction
+	        	opponent.setTargetDirection(human.getX(), human.getY(), human.getLastDirectionUsed() );
+	        	
+	        	// Draw the Opponent
 	        	g2d.drawImage(opponent.getIcon(), opponent.getX(), opponent.getY(), null);
 	        	this.turn = Turn.PLAYER;
 	        }
@@ -72,10 +78,12 @@ public class GameWindow extends JPanel implements KeyListener{
 	        if (code == KeyEvent.VK_UP) {
 	            velY = -2;
 	            velX = 0;
+	            human.setLastDirectionUsed(Direction.UP);
 	        }
 	        if (code == KeyEvent.VK_DOWN) {
 	            velY = 2;
 	            velX = 0;
+	            human.setLastDirectionUsed(Direction.DOWN);	            
 	        }
 	        if (code == KeyEvent.VK_LEFT) {
 	            if (x < 0) {
@@ -85,6 +93,7 @@ public class GameWindow extends JPanel implements KeyListener{
 	            velY = 0;
 	            velX = -2;
 	            }
+	            human.setLastDirectionUsed(Direction.LEFT);	            
 	        }
 	        if (code == KeyEvent.VK_RIGHT) {
 	            if (x > 760) {
@@ -93,6 +102,7 @@ public class GameWindow extends JPanel implements KeyListener{
 	            }
 	            velY = 0;
 	            velX = 2;
+	            human.setLastDirectionUsed(Direction.RIGHT);	            
 	        }
 	        //x += velX;
 	        //y += velY;

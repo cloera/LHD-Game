@@ -1,5 +1,9 @@
 package obstacles;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 /***
  *
  * 
@@ -7,11 +11,11 @@ package obstacles;
  *
  */
 public class Collectables {
+	private Image playerIcon = new ImageIcon("Assests/Images/Dog.png").getImage(); 
 	
 	private Collectables(){
 		//TODO
 	}
-	
 
 	public static Obstacles getCollectables() {
 		//TODO

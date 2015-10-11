@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 import obstacles.Obstacles;
+import player.HumanPlayer.Direction;
 
 /***
  * EnemyPlayer object class implements Player interface.
@@ -59,7 +60,7 @@ public class EnemyPlayer implements Player{
 	 * @param targetXCoor The Target's X Coordinate
 	 * @param targetYCoor The Target's Y Coordinate
 	 */
-	public void setTargetDirection(int targetXCoor, int targetYCoor){
+	public void setTargetDirection(int targetXCoor, int targetYCoor, Direction targetDirection){
 		int xBeforeChange = x;
 		int yBeforeChange = y;
 		
@@ -72,18 +73,18 @@ public class EnemyPlayer implements Player{
 			
 			switch(i)
 			{
-			case 0:
-				tempX -= 1;
-				break;
-			case 1:
-				tempX += 1;
-				break;
-			case 2:
-				tempY -= 1;
-				break;
-			case 3:
-				tempY += 1;
-				break;				
+				case 0:
+					tempX -= 1;
+					break;
+				case 1:
+					tempX += 1;
+					break;
+				case 2:
+					tempY -= 1;
+					break;
+				case 3:
+					tempY += 1;
+					break;				
 			}
 			
 			int calc = Math.abs((tempX - targetXCoor) + (tempY - targetYCoor));
@@ -94,7 +95,11 @@ public class EnemyPlayer implements Player{
 				setY(tempY);
 			}
 			else{
-				if(closestToZero > calc)
+				if(closestToZero > calc 
+						|| 
+						(closestToZero == calc && ((targetDirection == Direction.UP)
+												|| (targetDirection == Direction.DOWN))
+						))
 				{
 					closestToZero = calc;
 					setX(tempX);
@@ -103,7 +108,6 @@ public class EnemyPlayer implements Player{
 			}
 			
 		} // End For
-		
-	} // End Method
+	}// End Method
 
 }
