@@ -12,7 +12,7 @@ public class driver {
         JFrame frame = new JFrame("LHD-Game");
         GameWindow game = new GameWindow();
         frame.add(game);
-        frame.setSize(300, 400);
+        frame.setSize(400, 400);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         

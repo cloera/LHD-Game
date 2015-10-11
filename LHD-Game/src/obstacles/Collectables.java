@@ -35,6 +35,12 @@ public class Collectables {
 		return y;
 	}
 	
+	public boolean isCollected(int targetX, int targetY){
+		if( (x - targetX) <= 20 && (y - targetY) <= 20)
+			return true;
+		return false;
+	}
+	
 	public void regenerateItem(){
 		Random rn = new Random();
 		x = rn.nextInt(200) + 20;

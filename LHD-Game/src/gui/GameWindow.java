@@ -63,6 +63,9 @@ public class GameWindow extends JPanel implements KeyListener{
 	        	this.turn = Turn.PLAYER;
 	        }
 	        
+	        if(goal.isCollected(human.getX(), human.getY()))
+	        	goal.regenerateItem();
+	        
 	       g2d.drawImage(goal.getIcon(), goal.getX(), goal.getY(), null);
 	        
 	    }
